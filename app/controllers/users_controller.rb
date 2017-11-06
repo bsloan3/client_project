@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user 
+    @user = User.find_by(id: @current_user.id)
+    @recipe = Recipe.new
   end
 end
