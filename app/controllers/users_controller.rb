@@ -13,4 +13,8 @@ class UsersController < ApplicationController
       render '/users/new'
     end
   end
+
+  def show
+    @user 
+  end
 end
