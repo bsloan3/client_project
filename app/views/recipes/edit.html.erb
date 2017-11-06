@@ -1,8 +1,14 @@
 <%=form_tag("/recipes/#{@recipe.id}", method: "put") do%>
 <label for="name"> Name:</label>
   <input name="recipe[name]" type="text"><p>
-<label for="difficulty_level"> Difficulty Level: </label>
-  <input type="text" name="recipe[difficulty_level]"><p>
+<label for="recipe[difficulty_level]"> Difficulty Level: </label>
+  <select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 <label for="prep_time"> Prep Time: </label>
   <input type="text" name="recipe[prep_time]"><p>
 <label for="directions"> Directions: </label>

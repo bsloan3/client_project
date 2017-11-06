@@ -1,13 +1,18 @@
+
+<% if @recipes.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% end %>
 <h1>Menu Page</h1>
 
 <% @recipes.each do |recipe| %>
-  <h4> <%= recipe.name %> </h4>
+  <a href="/recipes/<%=recipe.id%>"><h4> <%= recipe.name %> </h4></a>
   <h6>By: <%= recipe.user.username %></h6>
   <p>
-    <span>difficulty_level <%= recipe.difficulty_level %>  |</span>
-    <span><%= recipe.prep_time %>  |</span>
-    <span><%= recipe.directions %>  |</span>
-    <span><%= recipe.category %></span>
+    <span>Difficulty: <%= recipe.difficulty_level %>  |</span>
+    <span>Prep Time: <%= recipe.prep_time %>  |</span>
+      <span>Category: <%= recipe.category %></span> <p>
+    <span><%= recipe.directions %> </span>
+
   </p>
   <!-- Load in and display the ingredients, probably throuph looping into partial -->
 <% end %>

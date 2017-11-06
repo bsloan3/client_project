@@ -1,10 +1,10 @@
 
   <div class = "row-1">
     <% @recipes.each do |recipe| %>
-    <% if recipe.id == @current_user.id %>
-    <a href="/recipes/<%=recipe.id%>">
+    <% if recipe.user_id == @current_user.id %>
+    - <a href="/recipes/<%=recipe.id%>">
       <%= recipe.name %>
-    </a>
+    </a> <p>
     <%end%>
     <% end %>
 
