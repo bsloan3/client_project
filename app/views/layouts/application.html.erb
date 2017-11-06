@@ -20,7 +20,7 @@
 
         <ul class="nav navbar-nav">
           <li><a href="/">Home</a></li>
-          <% if @current_user %>
+          <% if @current_user%>
             <li><a href="/"><%= @current_user.email %></a></li>
             <li><a href="/logout">Logout</a></li>
           <% else %>

@@ -1,3 +1,17 @@
 
-<h1> HI </h1>
+  <div class = "row-1">
+    <% @recipes.each do |recipe| %>
+    <a href="/show/<%=recipe.id%>">
+      <%= t.name %>
+    </a>
+    <%end%>
 
+  </div>
+
+  <div class = "row-2">
+
+  </div>
+
+  <div class = "row-3">
+    HI
+  </div>
