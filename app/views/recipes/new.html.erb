@@ -3,12 +3,9 @@
 <%= form_for @recipe do |form| %>
   <%if @recipe.errors.any? %>
     <div id="error_explantion">
-      <h2>
-        <%= pluralize(@user.errors.count, "error")%>
-      </h2>
       <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+        <% @recipe.errors.full_messages.each do |msg| %>
+                <p style="color: red;"><%= msg %></p>
         <% end %>
       </ul>
     </div>
@@ -34,6 +31,8 @@
     <%= form.label :category %><br>
     <%= form.select :category, ["Dessert", "Appetizer", "Salad", "Main Course"], :prompt => 'Select One' %>
   </p>
+
+
 
   <p>
     <%= form.submit 'Create Recipe' %>
