@@ -40,12 +40,11 @@ ActiveRecord::Schema.define(version: 20171106152602) do
     t.integer "difficulty_level", null: false
     t.integer "prep_time", null: false
     t.string "directions", null: false
+    t.string "category", null: false
+
     t.bigint "user_id", null: false
-    t.string "recipeable_type", null: false
-    t.bigint "recipeable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipeable_type", "recipeable_id"], name: "index_recipes_on_recipeable_type_and_recipeable_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
