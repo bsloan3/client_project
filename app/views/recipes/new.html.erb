@@ -1,0 +1,51 @@
+<h3>Create New Recipe!</h3>
+
+<%= form_for @recipe do |form| %>
+  <%if @user.errors.any? %>
+    <div id="error_explantion">
+      <h2>
+        <%= pluralize(@user.errors.count, "error")%>
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :difficulty_level %><br>
+    <%= form.text_field :difficulty_level %>
+  </p>
+  <p>
+    <%= form.label :prep_time %><br>
+    <%= form.text_field :prep_time %>
+  </p>
+  <p>
+    <%= form.label :directions %><br>
+    <%= form.text_field :directions %>
+  </p>
+  <p>
+    <%= form.label :prep_time %><br>
+    <%= form.text_field :prep_time %>
+  </p>
+  <p>
+    <%= form.label :prep_time %><br>
+    <%= form.text_field :prep_time %>
+  </p>
+  <p>
+    <%= form.label :recipeable_type %><br>
+    <!-- Need to limit this input to 4 menu options -->
+    <%= form.text_field :recipeable_type %>
+  </p>
+
+  <p>
+    <%= form.submit 'Create Recipe' %>
+  </p>
+
+<% end %>
