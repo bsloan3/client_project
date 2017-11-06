@@ -32,38 +32,22 @@
     <%= form.text_area :directions %>
   </p>
 
-  <% if @ingredients.any? %>
-    <% @ingredients.each do |ingredient| %>
-      <ol>
-        <li>
-          <span><%= ingredient.item %></span>
-          <span><%= ingredient.amount %></span>
-          <span><%= ingredient.measurement %></span>
-        </li>
-      </ol>
+  Ingredients:
+  <ul>
+    <%= form.fields_for :ingredients do |ingredients_form| %>
+      <li>
+        <%= ingredients_form.label :item %>
+        <%= ingredients_form.text_field :item %>
+
+        <%= ingredients_form.label :amount %>
+        <%= ingredients_form.text_field :amount %>
+
+        <%= ingredients_form.label :measurement %>
+        <%= ingredients_form.text_field :measurement %>
+
+      </li>
     <% end %>
-  <% end %>
-  <!--  Here we are going to want to be able to add a dynamic number of intregients hence it will be a form with n number of iterations, within this form-->
-  <%= form_for @ingredient do |f| %>
-    <p>
-      <%= f.label :item %><br>
-      <%= f.text_field :item %>
-    </p>
-    <p>
-      <%= f.label :amount %><br>
-      <%= f.text_field :amount %>
-    </p>
-    <p>
-      <%= f.label :measurement %><br>
-      <%= f.text_field :measurement %>
-    </p>
-    <p>
-      <%= f.submit 'Include Ingredient' %>
-    </p>
-  <% end %>
+  </ul>
 
-  <p>
-    <%= form.submit 'Create Recipe' %>
-  </p>
-
+  <%= form.submit 'Create Recipe' %>
 <% end %>

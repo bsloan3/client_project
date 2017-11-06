@@ -3,6 +3,7 @@ class IngredientsController < ApplicationController
   def new
     @user = current_user
     @ingredient = Ingredient.new
+    2.times {@ingredient.}
   end
 
   def create
