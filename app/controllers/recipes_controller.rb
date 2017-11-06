@@ -15,6 +15,8 @@ class RecipesController < ApplicationController
     @user = current_user
     redirect_to root_path unless login?
     @recipe = Recipe.new
+    @ingredients = []
+    @ingredient = Ingredient.new
   end
 
   def create
