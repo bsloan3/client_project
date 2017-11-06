@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171106152602) do
     t.integer "prep_time", null: false
     t.string "directions", null: false
     t.string "category", null: false
+
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
