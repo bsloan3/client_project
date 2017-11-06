@@ -15,4 +15,5 @@ class ApplicationController < ActionController::Base
      redirect_to '/login' unless login?
    end
 
+  
 end
