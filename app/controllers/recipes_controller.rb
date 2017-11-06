@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
   def create
     @user = current_user
     @recipe = Recipe.new(recipe_params)
-    @rating = Ratings.new(rating: params[:rating][:rating], user_id: @user.id, recipe_id: params[:id] )
+    # @rating = Ratings.new(rating: params[:rating][:rating], user_id: @user.id, recipe_id: params[:id] )
 
     @recipe.user = @user
     if @recipe.save
