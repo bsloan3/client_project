@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    current_user
+    redirect_to root_path unless login?
     @recipe = Recipe.new
   end
 
