@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 20171106152602) do
   enable_extension "plpgsql"
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "item", null: false
+    t.integer "amount", null: false
+    t.string "measurement", null: false
     t.bigint "recipe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,21 +40,18 @@ ActiveRecord::Schema.define(version: 20171106152602) do
     t.integer "difficulty_level", null: false
     t.integer "prep_time", null: false
     t.string "directions", null: false
-    t.string "quantity", null: false
-    t.string "measurement", null: false
+    t.string "category", null: false
+
     t.bigint "user_id", null: false
-    t.string "recipeable_type", null: false
-    t.bigint "recipeable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipeable_type", "recipeable_id"], name: "index_recipes_on_recipeable_type_and_recipeable_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

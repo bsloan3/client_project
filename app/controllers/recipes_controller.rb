@@ -17,7 +17,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipe.new(recipe_params)
+    @current_user = current_user
+    @recipe = Recipe.new(recipe_params)
     if @recipe.save
       redirect_to root_path
     else
@@ -28,8 +29,8 @@ class RecipesController < ApplicationController
 
   private
 
-  def concert_params
-    params.require(:concert).permit(:name, :difficulty_level, :prep_time, :directions, :user, :recipeable_type, :recipeable_id)
+  def recipe_params
+    params.require(:recipe).permit(:name, :difficulty_level, :prep_time, :directions, :user)
   end
 
 end

@@ -1,1 +1,18 @@
-<h1>Show Recipe Page</h1>
+<h1>Menu Page</h1>
+
+<% @recipes.each do |recipe| %>
+  <h4> <%= recipe.name %> </h4>
+  <h6>By: <%= recipe.user.username %></h6>
+  <p>
+    <span><%= recipe.difficulty_level %>  |</span>
+    <span><%= recipe.prep_time %>  |</span>
+    <span><%= recipe.directions %>  |</span>
+    <span><%= recipe.category %></span>
+  </p>
+  <!-- Load in and display the ingredients, probably throuph looping into partial -->
+<% end %>
+
+<hr>
+<div>
+  <li><%= link_to "Create Recipe", new_recipe_path %></li>
+</div>
