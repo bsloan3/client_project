@@ -9,6 +9,6 @@ class Recipe < ApplicationRecord
   validates :difficulty_level, inclusion: {in: [1,2,3,4,5]}
 
   def self.search(search)
-  where("name LIKE ?", "%#{search}%")
+  joins(:ingredients).where("name ILIKE ? OR directions ILIKE ? OR ingredients.item ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 end
