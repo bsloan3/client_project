@@ -8,7 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.string :quantity, null: false
       t.string :measurement, null: false
       t.references :user, foreign_key: true, null: false
-      t.references :recipeable, foreign_key: true, polymorphic: true, index: true, null: false
+      t.references :recipeable, polymorphic: true, index: true, null: false
 
       t.timestamps
     end
