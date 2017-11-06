@@ -1,0 +1,18 @@
+
+<% @recipe.name %> </h4>
+<%= @recipe.user.username %>
+<%= @recipe.difficulty_level %>  |</span>
+<%= @recipe.prep_time %>  |</span>
+<%= @recipe.directions %>  |</span>
+<%= @recipe.category %></span>
+<% if own_recipe?(@recipe) %>
+<center>
+  <a href="/recipes/<%=@recipe.id%>/edit"
+  class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit </a>
+  <p>
+  <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
+  <center>
+  <a class="waves-effect waves-light btn-large deep-purple lighten-2">
+  <%= f.submit :value => "Delete" %> </a>
+  <%end%>
+<%end%>

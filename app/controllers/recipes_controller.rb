@@ -20,7 +20,8 @@ class RecipesController < ApplicationController
   def create
     @user = current_user
     @recipe = Recipe.new(recipe_params)
-# binding.pry
+    @rating = Ratings.new(rating: params[:rating][:rating], user_id: @user.id, recipe_id: params[:id] )
+
     @recipe.user = @user
     if @recipe.save
       redirect_to root_path
@@ -30,6 +31,32 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    if current_user == @recipe.user
+      render '/recipes/edit'
+    else
+      @errors = ["not authorized"]
+      redirect_to '/recipes'
+    end
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+
+    if @recipe.save
+      redirect_to "/recipes/#{@recipe.id}"
+    else
+      render '/recipes/edit'
+    end
+  end
+
+  def destroy
+      @recipe = Recipe.find(params[:id])
+      @recipe.destroy
+      redirect_to '/recipes'
+  end
   private
 
   def recipe_params
