@@ -12,13 +12,16 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @user = current_user
     redirect_to root_path unless login?
     @recipe = Recipe.new
   end
 
   def create
-    @current_user = current_user
+    @user = current_user
     @recipe = Recipe.new(recipe_params)
+# binding.pry
+    @recipe.user = @user
     if @recipe.save
       redirect_to root_path
     else
@@ -30,7 +33,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :difficulty_level, :prep_time, :directions, :user)
+    params.require(:recipe).permit(:name, :difficulty_level, :prep_time, :directions, :category)
   end
 
 end
