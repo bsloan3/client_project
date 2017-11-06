@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(email: params[:user][:email], password: params[:user][:password])
+    @user = User.new(username: params[:user][:username], email: params[:user][:email], password: params[:user][:password])
     if @user.save
-      redirect_to '/'
+      redirect_to "/user/#{@user.id}"
     else
       @errors = "Try again."
       render '/users/new'
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user 
+    @user = User.find_by(id: current_user.id)
+
   end
 end
