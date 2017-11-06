@@ -1,15 +1,20 @@
 
-<% @recipe.name %> </h4>
-<%= @recipe.user.username %>
-<%= @recipe.difficulty_level %>  |</span>
-<%= @recipe.prep_time %>  |</span>
-<%= @recipe.directions %>  |</span>
-<%= @recipe.category %></span>
+<h2> <%= @recipe.name %> </h2>
+Created by: <%= @recipe.user.username %> <p>
+Difficulty Level: <%= @recipe.difficulty_level %>  |</span>
+Prep Time: <%= @recipe.prep_time %>  |</span>
+Category: <%= @recipe.category %></span> <p>
+Directions: <%= @recipe.directions %>  </span> <p>
+Ingredients:
+<p> <% @recipe.ingredients.each do |i| %>
+- <%= i.amount%> <%= i.measurement %><%if i.amount != 1%>'s<%end%>
+  of <%= i.item %> <p>
+<%end%>
+<p>
 <% if own_recipe?(@recipe) %>
 <center>
   <a href="/recipes/<%=@recipe.id%>/edit"
   class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit </a>
-  <p>
   <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
   <center>
   <a class="waves-effect waves-light btn-large deep-purple lighten-2">

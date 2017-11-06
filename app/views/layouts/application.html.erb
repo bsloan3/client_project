@@ -23,10 +23,13 @@
             <li><a href="/users/<%=@current_user.id%>"><%= @current_user.email %></a></li>
             <li><a href="/logout">Logout</a></li>
             <li><a href="/recipes/new"> Create New Recipe </a></li>
-            <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
-                <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+            <div class="wrap">
+            <%= form_tag(recipes_path, :method => "get", class: 'search') do %>
+                <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search Recipes" %>
                 <%= submit_tag "Search", :name => nil %>
+              </span>
             <% end %>
+          </div>
           <% else %>
             <li><a href="/login">Login</a></li>
             <li><a href="/users/new">New User</a></li>
