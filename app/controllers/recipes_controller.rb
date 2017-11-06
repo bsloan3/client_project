@@ -3,7 +3,13 @@ class RecipesController < ApplicationController
   def index
     current_user
     @recipes = Recipe.all
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).order("created_at DESC")
+    else
+      @recipes = Recipe.all.order("created_at DESC")
+    end
   end
+
 
   def show
     current_user
@@ -31,6 +37,32 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    if current_user == @recipe.user
+      render '/recipes/edit'
+    else
+      @errors = ["not authorized"]
+      redirect_to '/recipes'
+    end
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+
+    if @recipe.save
+      redirect_to "/recipes/#{@recipe.id}"
+    else
+      render '/recipes/edit'
+    end
+  end
+
+  def destroy
+      @recipe = Recipe.find(params[:id])
+      @recipe.destroy
+      redirect_to '/recipes'
+  end
   private
 
   def recipe_params

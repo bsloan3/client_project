@@ -21,7 +21,7 @@
   </p>
   <p>
     <%= form.label :difficulty_level %><br>
-    <%= form.text_field :difficulty_level %>
+    <%= form.select :difficulty_level, [1, 2, 3, 4, 5], :prompt => 'Select Level' %>
   </p>
   <p>
     <%= form.label :prep_time %><br>
@@ -42,6 +42,7 @@
         <%= ingredients_form.label :amount %>
         <%= ingredients_form.text_field :amount %>
 
+
         <%= ingredients_form.label :measurement %>
         <%= ingredients_form.text_field :measurement %>
 
@@ -51,3 +52,4 @@
 
   <%= form.submit 'Create Recipe' %>
 <% end %>
+
