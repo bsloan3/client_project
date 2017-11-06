@@ -31,9 +31,6 @@
     <%= form.text_area :directions %>
   </p>
   <p>
-    <%= form.hidden_field :user, value= @current_user %>
-  </p>
-  <p>
     <%= form.label :category %><br>
     <%= form.select :category, ["Dessert", "Appetizer", "Salad", "Main Course"], :prompt => 'Select One' %>
   </p>
