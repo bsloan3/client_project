@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(username: params[:user][:username], email: params[:user][:email], password: params[:user][:password])
     if @user.save
+      session[:user_id] = @user.id
       redirect_to "/users/#{@user.id}"
     else
       @errors = "Try again."
@@ -15,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @user = User.find_by(id: session[:user_id])
   end
 end
