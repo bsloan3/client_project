@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 # Thomas put this root and resouce in here, dont have to do it like this, just how I know how to
   root 'recipes#index'
 
-  resources :recipes
+  resources :recipes do
+    resources :ingredient, :only => [:create, :new] 
+  end
 
   get '/', to: redirect('/login')
 
