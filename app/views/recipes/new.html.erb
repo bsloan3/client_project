@@ -1,7 +1,7 @@
 <h3>Create New Recipe!</h3>
 
 <%= form_for @recipe do |form| %>
-  <%if @user.errors.any? %>
+  <%if @recipe.errors.any? %>
     <div id="error_explantion">
       <h2>
         <%= pluralize(@user.errors.count, "error")%>
@@ -28,20 +28,14 @@
   </p>
   <p>
     <%= form.label :directions %><br>
-    <%= form.text_field :directions %>
+    <%= form.text_area :directions %>
   </p>
   <p>
-    <%= form.label :prep_time %><br>
-    <%= form.text_field :prep_time %>
+    <%= form.hidden_field :user, value= @current_user %>
   </p>
   <p>
-    <%= form.label :prep_time %><br>
-    <%= form.text_field :prep_time %>
-  </p>
-  <p>
-    <%= form.label :recipeable_type %><br>
-    <!-- Need to limit this input to 4 menu options -->
-    <%= form.text_field :recipeable_type %>
+    <%= form.label :category %><br>
+    <%= form.select :category, ["Dessert", "Appetizer", "Salad", "Main Course"], :prompt => 'Select One' %>
   </p>
 
   <p>
