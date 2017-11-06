@@ -4,5 +4,5 @@ class Rating < ApplicationRecord
 
   validates :rating, :user, :recipe, presence: :true
   validates :rating, inclusion: {in: [1,2,3,4,5]}
-  validates_uniqueness_of :user, scope: :rating
+  validates_uniqueness_of :user, scope: :recipe
 end
