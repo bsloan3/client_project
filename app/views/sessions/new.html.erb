@@ -1,0 +1,12 @@
+<h1>Login</h1>
+
+<%= form_tag('/login', method: 'post') do %>
+  <label for="user[email]">Email: </label>
+  <input type="text" name="user[email]">
+  <label for="user[password]">Password: </label>
+  <input type="password" name="user[password]">
+  <input type="submit" name="submit">
+<% end %>
+<% if @errors %>
+  <p style="color:red;"><%= @errors %></p>
+<% end %>

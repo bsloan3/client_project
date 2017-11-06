@@ -1,0 +1,12 @@
+<h1>New User</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= f.submit "Create" %>
+<% end %>
+<% if @errors %>
+  <p style="color:red;"><%= @errors %></p>
+<% end %>
