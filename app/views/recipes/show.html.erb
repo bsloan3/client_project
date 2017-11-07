@@ -11,7 +11,8 @@ Ingredients:
   of <%= i.item %> <p>
 <%end%>
 
-<% if own_recipe?(@recipe) %>
+<% if current_user && own_recipe?(@recipe) %>
+<!-- WHY CENTER HERE? -->
   <center>
     <a href="/recipes/<%=@recipe.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit </a>
   <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
@@ -21,14 +22,19 @@ Ingredients:
   <%end%>
 <%end%>
 
-<%= form_tag('/ratings', method: 'post') do %>
-  <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-  <select name="rating">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <input type="submit" value="Rate">
+<% if current_user %>
+  <%= form_tag('/ratings', method: 'post') do %>
+    <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <input type="submit" value="Rate">
+  <%end%>
+<%end%>
+<% if @current_user_rating %>
+  <h4> Current Rating: <%= @current_user_rating.rating %> </h4>
 <%end%>
