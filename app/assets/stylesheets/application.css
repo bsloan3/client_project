@@ -94,7 +94,7 @@ body{
   height: 100%;
 }
 .owl-carousel div:not(.owl-controls) {
-  height: 50VH;
+  height: 60VH;
 }
 .owl-carousel .owl-slide {
   background-image: url("https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg");
@@ -109,7 +109,7 @@ body{
   background-position: center;
 }
 .owl-carousel .owl-slide3 {
-  background-image: url("https://i.ytimg.com/vi/xGyWqwuWecM/maxresdefault.jpg");
+  background-image: url("http://www.rickbayless.com/wp-content/uploads/2014/02/ChipsAndGuac.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
