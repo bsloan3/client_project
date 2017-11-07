@@ -27,15 +27,15 @@ jQuery(document).ready(function() {
 
 });
 
-$(document).ready(function(){
-  $(".add-ingredient").on("click", function(event){
-  event.preventDefault();
-  var $ingredientButton = $(this),
-      $ingredientContainer = $ingredientButton.closest("add-ingredient-container").find("last-child");
+// $(document).ready(function(){
+//   $(".add-ingredient").on("click", function(event){
+//   event.preventDefault();
+//   var $ingredientButton = $(this),
+//       $ingredientContainer = $ingredientButton.closest("add-ingredient-container").find("last-child");
 
-  $.ajax({
+//   $.ajax({
 
-  }).done(function(res){
-    $ingredientContainer.append(
-  })
-})
+//   }).done(function(res){
+//     $ingredientContainer.append(
+//   })
+// })
