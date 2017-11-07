@@ -168,3 +168,15 @@ footer{
 .btn-primary{
   border-radius: 8px !important;
 }
+
+/*user show*/
+#show-head{
+  padding-left: 5%;
+  padding-bottom: 1%;
+}
+
+/*recipe index*/
+.createnew{
+  padding-left: 5%;
+  padding-bottom: 1%;
+}
