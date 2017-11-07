@@ -5,7 +5,7 @@ module RecipesHelper
   end
 
   def sort_rating(recipes)
-    recipes.sort_by {|recipe| recipe.ratings.average(:rating)}
+    recipes.sort_by {|recipe| -recipe.ratings.average(:rating)}
   end
 
 end
