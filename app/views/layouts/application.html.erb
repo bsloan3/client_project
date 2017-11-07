@@ -18,27 +18,32 @@
   <body>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">CookBook</a>
-        </div>
-
-        <ul class="nav navbar-nav">
-          <% if @current_user%>
-            <li><a href="/users/<%=@current_user.id%>"><%= @current_user.username %>'s Profile</a></li>
-            <li><a href="/logout">Logout</a></li>
+        <% if @current_user%>
+          <ul class="nav navbar-nav">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">CookBook</a>
+            </div>
+            <li><a href="/recipes">Home</a></li>
+            <li><a href="/users/<%=@current_user.id%>">Profile</a></li>
             <li><a href="/recipes/new"> Create New Recipe </a></li>
             <li>
               <%= form_tag(recipes_path, :method => "get", class: 'search') do %>
                 <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search Recipes" %>
-            </li>
-            <li class="searchbutton">
-              <%= submit_tag "Search", :name => nil%>
-            </li>
               <% end %>
+            </li>
+            <li id="log"><a href="/logout">Logout</a></li>
+          </ul>
 
           <% else %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/users/new">New User</a></li>
+            <ul class="nav navbar-nav">
+              <li><a href="/login">Login</a></li>
+              <li><a href="/users/new">New User</a></li>
+              <li>
+                <%= form_tag(recipes_path, :method => "get", class: 'search') do %>
+                  <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search Recipes" %>
+                <% end %>
+              </li>
+            </ul>
           <% end %>
       </div>
     </nav>
