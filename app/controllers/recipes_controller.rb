@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
 
+  include RecipesHelper
+
   def index
     current_user
     @recipes = Recipe.all
@@ -13,9 +15,13 @@ class RecipesController < ApplicationController
   def home
     current_user
     @main_course_recipes = Recipe.where(category: 'Main Course')
+    @main_course_sort = sort_rating(@main_course_recipes)
     @salad_recipes = Recipe.where(category: 'Salad')
+    @salad_sort = sort_rating(@salad_recipes)
     @apps_recipes = Recipe.where(category: 'Appetizer')
+    @apps_sort = sort_rating(@apps_recipes)
     @dessert_recipes = Recipe.where(category: 'Dessert')
+    @dessert_sort = sort_rating(@dessert_recipes)
   end
 
   def show

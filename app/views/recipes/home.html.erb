@@ -34,14 +34,17 @@
         <h4 class="card-title">Top Main Courses</h4>
         <p class="card-text">
           <ol>
-            <% @main_course_recipes.each do |recipe| %>
-              <li><%= recipe.name %></li>
+            <% @main_course_sort[0...3].each do |recipe| %>
+              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
             <% end %>
           </ol>
         </p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-primary">Browse The Recipes!</a>
+        <%=form_tag(recipes_path, method: "get") do%>
+          <input type="hidden" name="search" value="Main Course">
+          <input type="submit" value="Browse The Recipes!">
+        <%end%>
       </div>
     </div>
   </div>
@@ -52,14 +55,17 @@
         <h4 class="card-title">Top Salads</h4>
         <p class="card-text">
           <ol>
-            <% @salad_recipes.each do |recipe| %>
-              <li><%= recipe.name %></li>
+            <% @salad_sort[0...3].each do |recipe| %>
+              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
             <% end %>
           </ol>
         </p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-primary">Browse The Recipes!</a>
+        <%=form_tag(recipes_path, method: "get") do%>
+          <input type="hidden" name="search" value="Salad">
+          <input type="submit" value="Browse The Recipes!">
+        <%end%>
       </div>
     </div>
   </div>
@@ -70,14 +76,17 @@
         <h4 class="card-title">Top Appetizers</h4>
         <p class="card-text">
           <ol>
-            <% @apps_recipes.each do |recipe| %>
-              <li><%= recipe.name %></li>
+            <% @apps_sort[0...3].each do |recipe| %>
+              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
             <% end %>
           </ol>
         </p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-primary">Browse The Recipes!</a>
+        <%=form_tag(recipes_path, method: "get") do%>
+          <input type="hidden" name="search" value="Appetizer">
+          <input type="submit" value="Browse The Recipes!">
+        <%end%>
       </div>
     </div>
   </div>
@@ -88,14 +97,17 @@
         <h4 class="card-title">Top Desserts</h4>
         <p class="card-text">
           <ol>
-            <% @dessert_recipes.each do |recipe| %>
-              <li><%= recipe.name %></li>
+            <% @dessert_sort[0...3].each do |recipe| %>
+              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
             <% end %>
           </ol>
         </p>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-primary">Browse The Recipes!</a>
+        <%=form_tag(recipes_path, method: "get") do%>
+          <input type="hidden" name="search" value="Dessert">
+          <input type="submit" value="Browse The Recipes!">
+        <%end%>
       </div>
     </div>
   </div>
