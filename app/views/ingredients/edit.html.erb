@@ -13,7 +13,7 @@
    </li>
    <%= form.submit "Update"%>
    <%= form_for("/ingredients/#{ingredient.id}", :method => :delete) do |f|%>
-         <%= f.submit :value => "Delete" %>
+         <%= f.submit "Delete" %>
    <%end%>
   <%end%>
 <%end%>
