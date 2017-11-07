@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -38,10 +37,8 @@
       <li>
         <%= ingredients_form.label :item %>
         <%= ingredients_form.text_field :item, placeholder: "Ingredient Name"  %>
-
         <%= ingredients_form.label :amount %>
         <%= ingredients_form.text_field :amount, placeholder: 0  %>
-
         <%= ingredients_form.label :measurement %>
         <%= ingredients_form.text_field :measurement, placeholder: "Unit" %>
 
