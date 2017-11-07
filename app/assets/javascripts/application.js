@@ -10,5 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
 //= require rails-ujs
 //= require_tree .
+
+$(document).ready(function(){
+  $(".add-ingredient").on("click", function(event){
+  event.preventDefault();
+  var $ingredientButton = $(this),
+      $ingredientContainer = $ingredientButton.closest("add-ingredient-container").find("last-child");
+
+  $.ajax({
+
+  }).done(function(res){
+    $ingredientContainer.append(
+  })
+})
