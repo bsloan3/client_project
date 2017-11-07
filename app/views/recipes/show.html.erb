@@ -1,18 +1,38 @@
-<div class = "recipe-information">
-  <h2> <%= @recipe.name %> </h2>
-  Created by: <%= @recipe.user.username %> <p>
-  Difficulty Level: <%= @recipe.difficulty_level %>  |</span>
-  Prep Time: <%= @recipe.prep_time %>  |</span>
-  Category: <%= @recipe.category %></span> <p>
-  Directions: <%= @recipe.directions %>  </span> <p>
-  Ingredients:
-  <p> <% @recipe.ingredients.each do |i| %>
-  - <%= i.amount%> <%= i.measurement %><%if i.amount != 1%>'s<%end%>
-    of <%= i.item %>
-      <a href="/ingredients/<%=i.id%>/edit"> <p>
-        Edit Ingredient
-      </a> <p>
-  <%end%>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Recipe</a></li>
+    <li><a data-toggle="tab" href="#menu1">Directions</a></li>
+    <li><a data-toggle="tab" href="#menu2">Details/Ratings</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3><a href="/recipes/<%=@recipe.id%>"><%= @recipe.name %></a></h3>
+      <p>Ingredients:</p>
+      <ul>
+        <% @recipe.ingredients.each do |i| %>
+          <li><%= i.amount%> <%= i.measurement %>
+            <%if i.amount != 1%>
+              's
+            <%end%>
+            of <%= i.item %></li>
+        <% end %>
+        <% if current_user && own_recipe?(@recipe) %>
+          <a href="/ingredients/<%=i.id%>/edit">Edit Ingredient</a>
+        <% end %>
+      </ul>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Directions</h3>
+      <p><%= @recipe.directions %></p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Details/Ratings</h3>
+      <p>Prep Time: <%= @recipe.prep_time %> mins</p>
+      <p>Difficulty: <%= @recipe.difficulty_level %>/5</p>
+      <p>Rating: <%= @recipe.ratings.average(:rating) %>/5</p>
+    </div>
+  </div>
 </div>
 
 <% if current_user && own_recipe?(@recipe) %>
