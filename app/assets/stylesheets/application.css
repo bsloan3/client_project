@@ -160,3 +160,11 @@ body{
 .owl-carousel .owl-controls .owl-buttons .owl-next {
   right: 5px;
 }
+
+footer{
+  padding-top: 5%;
+}
+
+.btn-primary{
+  border-radius: 8px !important;
+}
