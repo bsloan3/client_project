@@ -21,15 +21,19 @@ class RecipesController < ApplicationController
     @user = current_user
     redirect_to root_path unless login?
     @recipe = Recipe.new
-    3.times { @recipe.ingredients.build }
+    4.times { @recipe.ingredients.new }
   end
 
   def create
     @user = current_user
     @recipe = Recipe.new(recipe_params)
     @recipe.user = @user
-    
+
     if @recipe.save
+      params['recipe']['ingredients_attributes'].each do |i|
+        ingredient_values = params['recipe']['ingredients_attributes']["#{i}"].values
+        Ingredient.create(item: ingredient_values[0], amount: ingredient_values[1], measurement: ingredient_values[2], recipe_id: @recipe.id)
+      end
       redirect_to root_path
     else
       @errors = @recipe.errors.full_messages
