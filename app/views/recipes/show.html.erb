@@ -22,7 +22,7 @@ Ingredients:
   <%end%>
 <%end%>
 
-<% if current_user %>
+<% if current_user != @recipe.user %>
   <%= form_tag('/ratings', method: 'post') do %>
     <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
     <select name="rating">
@@ -41,5 +41,8 @@ Ingredients:
 <%end%>
 
 <% @recipe.ratings.each do |t| %>
-<%= t.rating %> | <%= t.user.username %> <p>
+  <%= t.rating %> | <%= t.user.username %> <p>
+  <% if current_user == t.user %>
+    hi
+  <%end%>
 <%end%>
