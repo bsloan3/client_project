@@ -20,14 +20,14 @@
     <option value="Salad">Salad</option>
     <option value="Main Course">Main Course</option>
   </select>
-<label for="ingredient">
-  <% @recipe.ingredients.each do |ingredients| %>
-  <li>
-    <%= ingredients.item %>
-    <%= ingredients.amount %>
-    <%= ingredients.measurement %>
-  </li>
+  <p>
+
+  <p> <% @recipe.ingredients.each do |i| %>
+  - <%= i.amount%> <%= i.measurement %><%if i.amount != 1%>'s
+  <%end%> of <%= i.item %>
   <%end%>
+
+  </p>
 <input type="submit" name="submit">
 
 <%end%>

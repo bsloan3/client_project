@@ -1,0 +1,8 @@
+<a href="/ingredient/<%=@ingredient.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2">
+  Edit
+</a>
+<%= form_for("/ingredients/#{@recipe.ingredient.id}", :method => :delete) do |f|%>
+  <a class="waves-effect waves-light btn-large deep-purple lighten-2">
+      <%= f.submit :value => "Delete" %>
+  </a>
+<%end%>

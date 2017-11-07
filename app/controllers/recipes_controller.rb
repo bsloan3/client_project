@@ -58,7 +58,7 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @ingredients = Ingredient.find_by(recipe: @recipe.id)
-
+    # binding.pry
     if current_user == @recipe.user
       render '/recipes/edit'
     else
@@ -70,8 +70,9 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
-
+    binding.pry
     if @recipe.save
+
       redirect_to "/recipes/#{@recipe.id}"
     else
       render '/recipes/edit'
