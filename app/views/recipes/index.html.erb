@@ -2,22 +2,42 @@
 <% if @recipes.blank? %>
   <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
 <% end %>
-<h1>Menu Page</h1>
+<h1 id="show-head">Menu Page</h1>
+<div class="createnew">
+  <%= link_to "Create Recipe", new_recipe_path %>
+</div>
 
 <% @recipes.each do |recipe| %>
-  <a href="/recipes/<%=recipe.id%>"><h4> <%= recipe.name %> </h4></a>
-  <h6>By: <%= recipe.user.username %></h6>
-  <p>
-    <span>Difficulty: <%= recipe.difficulty_level %>  |</span>
-    <span>Prep Time: <%= recipe.prep_time %>  |</span>
-      <span>Category: <%= recipe.category %></span> <p>
-    <span><%= recipe.directions %> </span>
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Recipe</a></li>
+      <li><a data-toggle="tab" href="#menu1">Directions</a></li>
+      <li><a data-toggle="tab" href="#menu2">Details/Ratings</a></li>
+    </ul>
 
-  </p>
-  <!-- Load in and display the ingredients, probably throuph looping into partial -->
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h3>
+        <p>Ingredients:</p>
+        <ul>
+          <% recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient.amount %> <%= ingredient.measurement %> of <%= ingredient.item %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <h3>Directions</h3>
+        <p><%= recipe.directions %></p>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <h3>Details/Ratings</h3>
+        <p>Prep Time: <%= recipe.prep_time %> mins</p>
+        <p>Difficulty: <%= recipe.difficulty_level %>/5</p>
+        <p>Rating: <%= recipe.ratings.average(:rating) %>/5</p>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <hr>
-<div>
-  <li><%= link_to "Create Recipe", new_recipe_path %></li>
-</div>
+
