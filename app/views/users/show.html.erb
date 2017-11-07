@@ -1,19 +1,36 @@
 
-  <div class = "row-1">
-    <% @recipes.each do |recipe| %>
-    <% if recipe.user_id == @current_user.id %>
-    - <a href="/recipes/<%=recipe.id%>">
-      <%= recipe.name %>
-    </a> <p>
-    <%end%>
-    <% end %>
+<h1 id="show-head"><%= @current_user.username %>'s Recipes</h1>
 
-  </div>
+<% @recipes.each do |recipe| %>
+  <% if recipe.user_id == @current_user.id %>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Recipe</a></li>
+        <li><a data-toggle="tab" href="#menu1">Directions</a></li>
+        <li><a data-toggle="tab" href="#menu2">Details/Ratings</a></li>
+      </ul>
 
-  <div class = "row-2">
-
-  </div>
-
-  <div class = "row-3">
-    HI
-  </div>
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <h3><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h3>
+          <p>Ingredients:</p>
+          <ul>
+            <% recipe.ingredients.each do |ingredient| %>
+              <li><%= ingredient.amount %> <%= ingredient.measurement %> of <%= ingredient.item %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <h3>Directions</h3>
+          <p><%= recipe.directions %></p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <h3>Details/Ratings</h3>
+          <p>Prep Time: <%= recipe.prep_time %> mins</p>
+          <p>Difficulty: <%= recipe.difficulty_level %>/5</p>
+          <p>Rating: <%= recipe.ratings.average(:rating) %>/5</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

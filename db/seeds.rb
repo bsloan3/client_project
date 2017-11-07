@@ -44,6 +44,7 @@ fries = Recipe.create(name:"Wavy Chips", difficulty_level: 1, prep_time: 1, dire
     Rating.create(rating: 1, user_id: 1, recipe_id: 2)
     Rating.create(rating: 5, user_id: 2, recipe_id: 2)
 
+
 escargot = Recipe.create(name:"T's Escargot", difficulty_level: 5, prep_time: 60, directions:"La fine cuisine de France est au dessus de vous Les cochons américains, abandonnez", user: t, category: 'Appetizer')
   Ingredient.create(item: 'snails', amount: 1, measurement: 'pound', recipe_id: 3)
   Ingredient.create(item: 'butter', amount: 1, measurement: 'stick', recipe_id: 3)
@@ -57,7 +58,6 @@ escargot = Recipe.create(name:"T's Escargot", difficulty_level: 5, prep_time: 60
     Rating.create(rating: 5, user_id: 4, recipe_id: 3)
     Rating.create(rating: 5, user_id: 5, recipe_id: 3)
     Rating.create(rating: 5, user_id: 6, recipe_id: 3)
-    Rating.create(rating: 5, user_id: 7, recipe_id: 3)
 
 rabbit_t = Recipe.create(name:"Rabbit Food", difficulty_level: 2, prep_time: 10, directions:"Mix the leaves together", user: najah, category: 'Salad')
   Ingredient.create(item: 'cabbage', amount: 1, measurement: 'head', recipe_id: 4)
@@ -230,3 +230,4 @@ rating = Rating.create(rating: 4, user_id: 2, recipe_id: 19)
 rating = Rating.create(rating: 2, user_id: 2, recipe_id: 20)
 rating = Rating.create(rating: 1, user_id: 2, recipe_id: 21)
 rating = Rating.create(rating: 2, user_id: 2, recipe_id: 22)
+
