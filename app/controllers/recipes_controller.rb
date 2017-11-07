@@ -10,11 +10,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def home
+    current_user
+    @recipes = Recipe.all
+  end
 
   def show
     current_user
     # Will need to change this once nested objects are inserted
     @recipe = Recipe.find_by(id: params[:id])
+    @current_user_rating = Rating.find_by(user: current_user, recipe: @recipe)
   end
 
   def new
@@ -75,7 +80,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :difficulty_level, :prep_time, :directions, :category)
   end
 
-  def ingredient_params
-    params.require(:ingredient).permit(:item, :amount, :measurement, :recipe)
-  end
+  # def ingredient_params
+  #   params.require(:ingredient).permit(:item, :amount, :measurement, :recipe)
+  # end
 end
