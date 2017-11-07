@@ -9,14 +9,14 @@ Ingredients:
 <p> <% @recipe.ingredients.each do |i| %>
 - <%= i.amount%> <%= i.measurement %><%if i.amount != 1%>'s<%end%>
   of <%= i.item %> <p>
+    <a href="/ingredients/<%=i.id%>/edit">
+      Edit
+    </a>
 <%end%>
 
 <% if current_user && own_recipe?(@recipe) %>
-<!-- WHY CENTER HERE? -->
-  <center>
     <a href="/recipes/<%=@recipe.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit </a>
   <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
-    <center>
     <a class="waves-effect waves-light btn-large deep-purple lighten-2">
     <%= f.submit :value => "Delete" %> </a>
   <%end%>
