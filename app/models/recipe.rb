@@ -8,6 +8,8 @@ class Recipe < ApplicationRecord
   validates :name, :difficulty_level, :prep_time, :directions, :user, :category, presence: :true
   validates :difficulty_level, inclusion: {in: [1,2,3,4,5]}
 
+  accepts_nested_attributes_for :ingredients
+
   def self.search(search)
   where("name LIKE ?", "%#{search}%")
   end
