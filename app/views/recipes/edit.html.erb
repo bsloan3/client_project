@@ -16,11 +16,18 @@
 <label for="category"> Category: </label>
   <select>
     <option value="Dessert">Dessert</option>
-  <option value="Appetizer">Appetizer</option>
-  <option value="Salad">Salad</option>
-  <option value="Main Course">Main Course</option>
-</select>
-
+    <option value="Appetizer">Appetizer</option>
+    <option value="Salad">Salad</option>
+    <option value="Main Course">Main Course</option>
+  </select>
+<label for="ingredient">
+  <% @recipe.ingredients.each do |ingredients| %>
+  <li>
+    <%= ingredients.item %>
+    <%= ingredients.amount %>
+    <%= ingredients.measurement %>
+  </li>
+  <%end%>
 <input type="submit" name="submit">
 
 <%end%>

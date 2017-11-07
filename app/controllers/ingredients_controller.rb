@@ -1,4 +1,19 @@
 class IngredientsController < ApplicationController
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @ingredients = Ingredient.find_by(recipe: @recipe.id)
+    @ingredients.update(ingredient_params)
+
+    if @ingredients.save
+      redirect_to "/recipes/#{@recipe.id}"
+    else
+
+  end
+
+  def ingredient_params
+    params.require(:ingredient).permit(:item, :amount, :measurement, :recipe)
+  end
   #
   # def new
   #   @user = current_user
