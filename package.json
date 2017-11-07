@@ -1,5 +1,7 @@
 {
   "name": "client_project",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "materialize-css": "^0.100.2"
+  }
 }
