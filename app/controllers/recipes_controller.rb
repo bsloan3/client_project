@@ -6,9 +6,10 @@ class RecipesController < ApplicationController
     current_user
     @recipes = Recipe.all
     if params[:search]
-      @recipes = Recipe.search(params[:search]).order("created_at DESC")
+      @recipes = Recipe.search(params[:search]).order("created_at DESC").uniq
+
     else
-      @recipes = Recipe.all.order("created_at DESC")
+      @recipes = Recipe.all.order("created_at DESC").uniq
     end
   end
 
@@ -47,8 +48,9 @@ class RecipesController < ApplicationController
       params['recipe']['ingredients_attributes'].each do |i|
         ingredient_values = params['recipe']['ingredients_attributes']["#{i}"].values
         Ingredient.create(item: ingredient_values[0], amount: ingredient_values[1], measurement: ingredient_values[2], recipe_id: @recipe.id)
+      @recipe.rating.create(user: @user, recipe: @recipe, rating: 0)
       end
-      redirect_to root_path
+      redirect_to recipe_path(@recipe)
     else
       @errors = @recipe.errors.full_messages
       render "new"

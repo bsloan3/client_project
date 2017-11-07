@@ -12,8 +12,8 @@
      <%= form.text_field :measurement, value: ingredient.measurement %>
    </li>
    <%= form.submit "Update"%>
+   <%end%>
    <%= form_for("/ingredients/#{ingredient.id}", :method => :delete) do |f|%>
          <%= f.submit "Delete" %>
-   <%end%>
   <%end%>
 <%end%>
