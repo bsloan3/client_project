@@ -40,9 +40,10 @@ Ingredients:
   <h4> Current Rating: <%= @current_user_rating.rating %> </h4>
 <%end%>
 
-<% @recipe.ratings.each do |t| %>
-  <%= t.rating %> | <%= t.user.username %> <p>
-  <% if current_user == t.user %>
-    hi
+<% @recipe.ratings.each do |rating| %>
+  <%= rating.rating %> | <%= rating.user.username %>
+
+  <% if current_user == rating.user %>
+    <%= render partial: '/ratings/edit', locals: { rating: rating } %>
   <%end%>
 <%end%>
