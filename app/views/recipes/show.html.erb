@@ -1,18 +1,19 @@
-<h2> <%= @recipe.name %> </h2>
-
-Created by: <%= @recipe.user.username %> <p>
-Difficulty Level: <%= @recipe.difficulty_level %>  |</span>
-Prep Time: <%= @recipe.prep_time %>  |</span>
-Category: <%= @recipe.category %></span> <p>
-Directions: <%= @recipe.directions %>  </span> <p>
-Ingredients:
-<p> <% @recipe.ingredients.each do |i| %>
-- <%= i.amount%> <%= i.measurement %><%if i.amount != 1%>'s<%end%>
-  of <%= i.item %>
-    <a href="/ingredients/<%=i.id%>/edit"> <p>
-      Edit Ingredient
-    </a> <p>
-<%end%>
+<div class = "recipe-information">
+  <h2> <%= @recipe.name %> </h2>
+  Created by: <%= @recipe.user.username %> <p>
+  Difficulty Level: <%= @recipe.difficulty_level %>  |</span>
+  Prep Time: <%= @recipe.prep_time %>  |</span>
+  Category: <%= @recipe.category %></span> <p>
+  Directions: <%= @recipe.directions %>  </span> <p>
+  Ingredients:
+  <p> <% @recipe.ingredients.each do |i| %>
+  - <%= i.amount%> <%= i.measurement %><%if i.amount != 1%>'s<%end%>
+    of <%= i.item %>
+      <a href="/ingredients/<%=i.id%>/edit"> <p>
+        Edit Ingredient
+      </a> <p>
+  <%end%>
+</div>
 
 <% if current_user && own_recipe?(@recipe) %>
     <a href="/recipes/<%=@recipe.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit </a>
@@ -41,8 +42,7 @@ Ingredients:
 <%end%>
 
 <% @recipe.ratings.each do |rating| %>
-  <%= rating.rating %> | <%= rating.user.username %>
-
+  <%= rating.rating %> | <%= rating.user.username %> <p>
   <% if current_user == rating.user %>
     <%= render partial: '/ratings/edit', locals: { rating: rating } %>
   <%end%>
