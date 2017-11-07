@@ -180,3 +180,23 @@ footer{
   padding-left: 5%;
   padding-bottom: 1%;
 }
+
+/*recipe show*/
+#recipeshow{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.showrating{
+  padding-left: 3%;
+  margin-top: 3%;
+  border-top: solid;
+}
+.editbutton{
+  padding-right: 10%;
+  padding-top: 3%;
+  float:right;
+}
+.deletebutton{
+  padding-left: 5%;
+  padding-top: 3%;
+}

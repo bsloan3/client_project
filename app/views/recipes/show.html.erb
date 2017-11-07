@@ -1,4 +1,10 @@
-<div class="container">
+<div class="editbutton">
+  <% if current_user && own_recipe?(@recipe) %>
+    <a href="/recipes/<%=@recipe.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit Recipe </a>
+  <%end%>
+</div>
+
+<div id="recipeshow" class="container">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Recipe</a></li>
     <li><a data-toggle="tab" href="#menu1">Directions</a></li>
@@ -14,11 +20,11 @@
           <li><%= i.amount%> <%= i.measurement %>
             <%if i.amount != 1%>
               's
-            <%end%>
+            <% end %>
             of <%= i.item %></li>
-        <% end %>
-        <% if current_user && own_recipe?(@recipe) %>
-          <a href="/ingredients/<%=i.id%>/edit">Edit Ingredient</a>
+            <% if current_user && own_recipe?(@recipe) %>
+              <a href="/ingredients/<%=i.id%>/edit">Edit Ingredient</a>
+            <% end %>
         <% end %>
       </ul>
     </div>
@@ -35,13 +41,14 @@
   </div>
 </div>
 
-<% if current_user && own_recipe?(@recipe) %>
-    <a href="/recipes/<%=@recipe.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit </a>
-  <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
-    <a class="waves-effect waves-light btn-large deep-purple lighten-2">
-    <%= f.submit :value => "Delete" %> </a>
+<div class="deletebutton">
+  <% if current_user && own_recipe?(@recipe) %>
+    <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
+      <a class="waves-effect waves-light btn-large deep-purple lighten-2">
+      <%= f.submit :value => "Delete" %> </a>
+    <%end%>
   <%end%>
-<%end%>
+</div>
 
 <% if current_user != @recipe.user %>
   <%= form_tag('/ratings', method: 'post') do %>
@@ -57,13 +64,16 @@
   <%end%>
 <%end%>
 
-<% if @current_user_rating %>
-  <h4> Current Rating: <%= @current_user_rating.rating %> </h4>
-<%end%>
-
-<% @recipe.ratings.each do |rating| %>
-  <%= rating.rating %> | <%= rating.user.username %> <p>
-  <% if current_user == rating.user %>
-    <%= render partial: '/ratings/edit', locals: { rating: rating } %>
+<div class="showrating">
+  <h2>Ratings:</h2>
+  <% if @current_user_rating %>
+    <h4> Your Current Rating: <%= @current_user_rating.rating %> </h4>
   <%end%>
-<%end%>
+
+  <% @recipe.ratings.each do |rating| %>
+    <%= rating.rating %> | <%= rating.user.username %>
+    <% if current_user == rating.user %>
+      <%= render partial: '/ratings/edit', locals: { rating: rating } %>
+    <%end%>
+  <%end%>
+</div>
