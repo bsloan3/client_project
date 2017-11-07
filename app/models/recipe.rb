@@ -11,6 +11,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients
 
   def self.search(search)
-  where("name LIKE ?", "%#{search}%")
+  joins(:ingredients).where("name ILIKE ? OR directions ILIKE ? OR ingredients.item ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 end

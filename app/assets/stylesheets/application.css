@@ -22,7 +22,11 @@ body{
 
 .search {
   width: 100%;
-  position: relative
+  position: relative;
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+
 }
 
 .searchTerm {
@@ -52,6 +56,12 @@ body{
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
+}
+
+.searchbutton{
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 /*Resize the wrap to see the search bar change!*/

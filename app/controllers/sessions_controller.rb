@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def delete
-    session[:user_id] = nil
+    reset_session
     redirect_to '/'
   end
 end
