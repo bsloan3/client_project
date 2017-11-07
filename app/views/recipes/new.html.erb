@@ -33,7 +33,7 @@
   </p>
 
   Ingredients:
-  <ul>
+  <ul class="add-ingredient-container">
     <%= form.fields_for :ingredients do |ingredients_form| %>
       <li>
         <%= ingredients_form.label :item %>
@@ -47,6 +47,7 @@
 
       </li>
       <% end %>
+  <button class="add-ingredient">Add Ingredient</button>
   </ul>
 
   <%= form.submit 'Create Recipe' %>
