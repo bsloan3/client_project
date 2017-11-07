@@ -34,8 +34,9 @@
         <h4 class="card-title">Top Main Courses</h4>
         <p class="card-text">
           <ol>
-            <li>djkfsgfljkds</li>
-            <li>djkfssdfggfljkds</li>
+            <% @main_course_recipes.each do |recipe| %>
+              <li><%= recipe.name %></li>
+            <% end %>
           </ol>
         </p>
       </div>
@@ -51,8 +52,9 @@
         <h4 class="card-title">Top Salads</h4>
         <p class="card-text">
           <ol>
-            <li>djkfsgfljkds</li>
-            <li>djkfssdfggfljkds</li>
+            <% @salad_recipes.each do |recipe| %>
+              <li><%= recipe.name %></li>
+            <% end %>
           </ol>
         </p>
       </div>
@@ -68,8 +70,9 @@
         <h4 class="card-title">Top Appetizers</h4>
         <p class="card-text">
           <ol>
-            <li>djkfsgfljkds</li>
-            <li>djkfssdfggfljkds</li>
+            <% @apps_recipes.each do |recipe| %>
+              <li><%= recipe.name %></li>
+            <% end %>
           </ol>
         </p>
       </div>
@@ -85,8 +88,9 @@
         <h4 class="card-title">Top Desserts</h4>
         <p class="card-text">
           <ol>
-            <li>djkfsgfljkds</li>
-            <li>djkfssdfggfljkds</li>
+            <% @dessert_recipes.each do |recipe| %>
+              <li><%= recipe.name %></li>
+            <% end %>
           </ol>
         </p>
       </div>
