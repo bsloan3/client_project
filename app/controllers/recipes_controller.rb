@@ -7,7 +7,6 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
     if params[:search]
       @recipes = Recipe.search(params[:search]).order("created_at DESC").uniq
-
     else
       @recipes = Recipe.all.order("created_at DESC").uniq
     end
@@ -27,7 +26,6 @@ class RecipesController < ApplicationController
 
   def show
     current_user
-    # Will need to change this once nested objects are inserted
     @recipe = Recipe.find_by(id: params[:id])
     @current_user_rating = Rating.find_by(user: current_user, recipe: @recipe)
   end

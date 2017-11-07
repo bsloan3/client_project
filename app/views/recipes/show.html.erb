@@ -50,24 +50,23 @@
   <%end%>
 </div>
 
-<% if current_user != @recipe.user %>
-  <%= form_tag('/ratings', method: 'post') do %>
-    <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <input type="submit" value="Rate">
-  <%end%>
-<%end%>
 
 <div class="showrating">
   <h2>Ratings:</h2>
   <% if @current_user_rating %>
     <h4> Your Current Rating: <%= @current_user_rating.rating %> </h4>
+  <% else %>
+    <%= form_tag('/ratings', method: 'post') do %>
+      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+      <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="submit" value="Rate">
+    <%end%>
   <%end%>
 
   <% @recipe.ratings.each do |rating| %>
