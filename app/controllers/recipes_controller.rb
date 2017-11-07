@@ -12,7 +12,10 @@ class RecipesController < ApplicationController
 
   def home
     current_user
-    @recipes = Recipe.all
+    @main_course_recipes = Recipe.where(category: 'Main Course')
+    @salad_recipes = Recipe.where(category: 'Salad')
+    @apps_recipes = Recipe.where(category: 'Appetizer')
+    @dessert_recipes = Recipe.where(category: 'Dessert')
   end
 
   def show

@@ -77,7 +77,7 @@ body{
   transform: translate(-50%, -50%);
 }
 
-/*home*/
+/*home*//*
 .carousel-item {
   height: 65vh;
   min-height: 300px;
@@ -86,4 +86,77 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+*/
+
+.owl-carousel {
+  position: relative;
+  height: 100%;
+}
+.owl-carousel div:not(.owl-controls) {
+  height: 50VH;
+}
+.owl-carousel .owl-slide {
+  background-image: url("https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.owl-carousel .owl-slide2 {
+  background-image: url("http://www.saladbarmn.com/assets/img/slider/2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.owl-carousel .owl-slide3 {
+  background-image: url("https://i.ytimg.com/vi/xGyWqwuWecM/maxresdefault.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.owl-carousel .owl-slide4 {
+  background-image: url("https://tacoma.eat24hours.com/files/cuisines/v4/dessert.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.owl-carousel div.owl--text {
+  position: absolute;
+  bottom: 4em;
+  left: 2em;
+  width: 20em;
+  height: 8em;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+}
+.owl-carousel .owl-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+.owl-carousel .owl-controls .owl-buttons div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  zoom: 1;
+  margin: 0;
+  width: 50px;
+  height: 30px;
+  line-height: 25px;
+  text-align: center;
+  font-size: .9em;
+  border-radius: 3px;
+  color: #FFF;
+  background: #000;
+  opacity: .6;
+  text-transform: capitalize;
+}
+.owl-carousel .owl-controls .owl-buttons .owl-prev {
+  left: 5px;
+}
+.owl-carousel .owl-controls .owl-buttons .owl-next {
+  right: 5px;
 }
