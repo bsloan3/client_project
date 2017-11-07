@@ -1,5 +1,5 @@
-<%= form_tag("/recipes/#{@recipe.id}/ratings/#{@rating.id}", method: 'put') do %>
-  <input type="hidden" name="recipe_id" value="<%=@rating.id%>">
+<%= form_tag("/recipes/#{rating.recipe_id}/ratings/#{rating.id}", method: 'put') do %>
+  <input type="hidden" name="recipe_id" value="<%=rating.id%>">
   <select name="rating">
     <option value="1">1</option>
     <option value="2">2</option>

@@ -34,12 +34,12 @@ nachos = Recipe.create(name:"Dave's Grumpy Nachos", difficulty_level: 5, prep_ti
     Rating.create(rating: 5, user_id: 5, recipe_id: 1)
     Rating.create(rating: 1, user_id: 6, recipe_id: 1)
 
-fries = Recipe.create(name:"Wavy Chips", difficulty_level: 1, prep_time: 1, directions:"Go to the store and buy some wavyyyyyy lays", user: waviest, category: 'Appetizer')
+fries = Recipe.create(name:"Wavy Chips", difficulty_level: 1, prep_time: 1, directions:"Go to the store and buy some wavyyyyyy lays", user: chris, category: 'Appetizer')
   Ingredient.create(item: 'Chips', amount: 1, measurement: 'bag', recipe_id: 2)
     Rating.create(rating: 1, user_id: 1, recipe_id: 2)
     Rating.create(rating: 5, user_id: 2, recipe_id: 2)
 
-escargot = Recipe.create(name:"T's Escargot", difficulty_level: 5, prep_time: 60, directions:"La fine cuisine de France est au dessus de vous Les cochons américains, abandonnez", user: waviest, category: 'Appetizer')
+escargot = Recipe.create(name:"T's Escargot", difficulty_level: 5, prep_time: 60, directions:"La fine cuisine de France est au dessus de vous Les cochons américains, abandonnez", user: chris, category: 'Appetizer')
   Ingredient.create(item: 'snails', amount: 1, measurement: 'pound', recipe_id: 3)
   Ingredient.create(item: 'butter', amount: 1, measurement: 'stick', recipe_id: 3)
   Ingredient.create(item: 'shallot', amount: 1, measurement: 'stalk', recipe_id: 3)

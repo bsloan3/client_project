@@ -24,7 +24,8 @@ class RatingsController < ApplicationController
   def update
     @user = current_user
     @recipe = Recipe.find_by(id: params[:recipe_id])
-    @rating = Rating.find_by(recipe_id: @recipe.id)
+    # binding.pry
+    @rating = Rating.find_by(id: params[:id])
     @rating.update(rating: params[:rating], user_id: @user.id, recipe_id: @recipe.id)
 
     if @rating.save
