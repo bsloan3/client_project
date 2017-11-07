@@ -5,13 +5,13 @@
   <% if recipe.user_id == @current_user.id %>
     <div class="container">
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Recipe</a></li>
-        <li><a data-toggle="tab" href="#menu1">Directions</a></li>
-        <li><a data-toggle="tab" href="#menu2">Details/Ratings</a></li>
+        <li class="active"><a data-toggle="tab" href="#<%= recipe.name %>home">Recipe</a></li>
+        <li><a data-toggle="tab" href="#<%= recipe.name %>menu1">Directions</a></li>
+        <li><a data-toggle="tab" href="#<%= recipe.name %>menu2">Details/Ratings</a></li>
       </ul>
 
       <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
+        <div id="<%= recipe.name %>home" class="tab-pane fade in active">
           <h3><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h3>
           <p>Ingredients:</p>
           <ul>
@@ -20,11 +20,11 @@
             <% end %>
           </ul>
         </div>
-        <div id="menu1" class="tab-pane fade">
+        <div id="<%= recipe.name %>menu1" class="tab-pane fade">
           <h3>Directions</h3>
           <p><%= recipe.directions %></p>
         </div>
-        <div id="menu2" class="tab-pane fade">
+        <div id="<%= recipe.name %>menu2" class="tab-pane fade">
           <h3>Details/Ratings</h3>
           <p>Prep Time: <%= recipe.prep_time %> mins</p>
           <p>Difficulty: <%= recipe.difficulty_level %>/5</p>
