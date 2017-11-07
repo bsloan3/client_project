@@ -32,18 +32,16 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Top Main Courses</h4>
-        <p class="card-text">
-          <ol>
-            <% @main_course_sort[0...3].each do |recipe| %>
-              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
-            <% end %>
-          </ol>
-        </p>
+        <% @main_course_sort[0...3].each do |recipe| %>
+          <p class="card-text">
+            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+          </p>
+        <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Main Course">
-          <input type="submit" value="Browse The Recipes!">
+          <button type="submit" class="btn-primary">Browse The Recipes!</button>
         <%end%>
       </div>
     </div>
@@ -53,18 +51,16 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Top Salads</h4>
-        <p class="card-text">
-          <ol>
-            <% @salad_sort[0...3].each do |recipe| %>
-              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
-            <% end %>
-          </ol>
-        </p>
+        <% @salad_sort[0...3].each do |recipe| %>
+          <p class="card-text">
+            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+          </p>
+        <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Salad">
-          <input type="submit" value="Browse The Recipes!">
+          <button type="submit" class="btn-primary">Browse The Recipes!</button>
         <%end%>
       </div>
     </div>
@@ -74,18 +70,16 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Top Appetizers</h4>
-        <p class="card-text">
-          <ol>
-            <% @apps_sort[0...3].each do |recipe| %>
-              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
-            <% end %>
-          </ol>
-        </p>
+        <% @apps_sort[0...3].each do |recipe| %>
+          <p class="card-text">
+            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+          </p>
+        <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Appetizer">
-          <input type="submit" value="Browse The Recipes!">
+          <button type="submit" class="btn-primary">Browse The Recipes!</button>
         <%end%>
       </div>
     </div>
@@ -95,23 +89,23 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Top Desserts</h4>
-        <p class="card-text">
-          <ol>
-            <% @dessert_sort[0...3].each do |recipe| %>
-              <li><strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %></li>
-            <% end %>
-          </ol>
-        </p>
+        <% @dessert_sort[0...3].each do |recipe| %>
+          <p class="card-text">
+            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+          </p>
+          <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Dessert">
-          <input type="submit" value="Browse The Recipes!">
+          <button type="submit" class="btn-primary">Browse The Recipes!</button>
         <%end%>
       </div>
     </div>
   </div>
-
 </div>
 
+<footer class="container">
+  <p>© 2017 Bradley Sloan, Najah Izquierdo, Thomas Rafferty </p>
+</footer>
 
