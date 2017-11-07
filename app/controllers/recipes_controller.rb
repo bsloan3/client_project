@@ -10,6 +10,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def home
+    current_user
+    @recipes = Recipe.all
+  end
 
   def show
     current_user
