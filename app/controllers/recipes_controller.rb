@@ -69,7 +69,6 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
-    binding.pry
     if @recipe.save
 
       redirect_to "/recipes/#{@recipe.id}"

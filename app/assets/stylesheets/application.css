@@ -286,3 +286,8 @@ footer{
 
   float: right !important;
 }
+
+.tab-pane {
+  margin-top: 3%;
+  border-top: solid;
+}
