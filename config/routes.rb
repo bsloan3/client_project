@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 # Thomas put this root and resouce in here, dont have to do it like this, just how I know how to
   root 'recipes#home'
 
-  resources :recipes 
-
+  resources :recipes
 
   get '/users/new', to: 'users#new'
   post '/users', to: 'users#create'

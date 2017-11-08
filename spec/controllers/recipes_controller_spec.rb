@@ -17,10 +17,10 @@ RSpec.describe RecipesController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    it "responds with status code 200" do
-      get :show, { id: recipe.id }
-      expect(response).to have_http_status 200
-    end
+  # describe "GET #show" do
+  #   it "responds with status code 200" do
+  #     get :show, { id: recipe.id }
+  #     expect(response).to have_http_status 200
+  #   end
   end
 end
