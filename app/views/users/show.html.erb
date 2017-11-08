@@ -1,5 +1,10 @@
 
-<h1 id="show-head"><%= @current_user.username %>'s Recipes</h1>
+<div class="row header" id="show-head">
+  <div class="col-md-8 col-sm-8 col-lg-8"></div>
+  <div  class="col-md-4 col-sm-4 col-lg-4">
+    <h1><%= @current_user.username %>'s Recipes</h1>
+  </div>
+</div>
 
 <% @recipes.each do |recipe| %>
   <% if recipe.user_id == @current_user.id %>
