@@ -6,46 +6,46 @@
       <div id="error_explantion">
         <ul>
           <% @recipe.errors.full_messages.each do |msg| %>
-                  <p style="color: red;"><%= msg %></p>
+                  <div style="color: red;"><%= msg %></div>
           <% end %>
         </ul>
       </div>
     <% end %>
-    <p>
+    <div>
       <%= form.label :name %><br>
       <%= form.text_field :name %>
-    </p>
-    <p>
+    </div>
+    <div>
       <%= form.label :category %><br>
       <%= form.select :category, ["Dessert", "Appetizer", "Salad", "Main Course"], :prompt => 'Select One' %>
-    </p>
-    <p>
+    </div>
+    <div>
       <%= form.label :difficulty_level %><br>
       <%= form.select :difficulty_level, [1, 2, 3, 4, 5], :prompt => 'Select Level' %>
-    </p>
-    <p>
+    </div>
+    <div>
       <%= form.label :prep_time, "Preperation Time (Minutes)" %><br>
       <%= form.text_field :prep_time %>
-    </p>
-    <p>
+    </div>
+    <div>
       <%= form.label :directions %><br>
       <%= form.text_area :directions %>
-    </p>
+    </div>
 
     Ingredients:
     <ul class="add-ingredient-container">
       <%= form.fields_for :ingredients do |ingredients_form| %>
-        <li>
+        <li class="ingredient-form">
           <%= ingredients_form.label :item %>
           <%= ingredients_form.text_field :item, placeholder: "Ingredient Name"  %>
           <%= ingredients_form.label :amount %>
           <%= ingredients_form.text_field :amount, placeholder: 0  %>
           <%= ingredients_form.label :measurement %>
           <%= ingredients_form.text_field :measurement, placeholder: "Unit" %>
-
+          <span class="hide-ingredient" title="remove ingredient">X</span>
         </li>
         <% end %>
-    <button class="add-ingredient">Add Ingredient</button>
+    <button class="show-ingredient">Add Ingredient</button>
     </ul>
 
     <%= form.submit 'Create Recipe' %>
