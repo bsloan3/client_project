@@ -28,7 +28,6 @@ class RecipesController < ApplicationController
     current_user
     @recipe = Recipe.find_by(id: params[:id])
     @current_user_rating = Rating.find_by(user: current_user, recipe: @recipe)
-    # binding.pry
   end
 
   def new
