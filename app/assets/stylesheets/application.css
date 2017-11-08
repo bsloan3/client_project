@@ -218,8 +218,16 @@ footer{
 
 /*user show*/
 #show-head{
-  padding-left: 5%;
-  padding-bottom: 1%;
+  padding: 5%;
+  color: white;
+  margin-bottom: 2%;
+  margin-top: 0px !important;
+  height: 100%;
+  background-image: url("http://www.powerpointhintergrund.com/uploads/food-background-2.jpg");
+  background-size: cover;
+/*  -webkit-text-stroke: 1.0px #000000;
+  -webkit-text-fill-color: #FFFFFF;*/
+  font-weight: bolder;
 }
 
 /*recipe index*/
