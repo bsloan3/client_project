@@ -8,21 +8,23 @@
 <%end%>
 
 <div class="rating-button">
+  <% if @current_user_rating %>
+    <h4> Your Current Rating: <%= @current_user_rating.rating %> </h4>
 
     <%= form_tag('/ratings', method: 'post') do %>
       <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-      <select class="form-control" name="rating">
+      <select class="selectpicker" data-style="btn-primary" name="rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <input type="submit" class="btn btn-primary btn-xs" value="Rate">
-  <% if @current_user_rating == current_user.ratings %>
-  <h4> Your Current Rating: <%= @current_user_rating.rating %> </h4>
-    <%= render partial: '/ratings/edit', locals: { recipe: @recipe, ratings:@current_user_rating.rating} %>
-    <% end %>
+      <input type="submit" class="btn btn-primary .btn-xs" value="Rate">
+      <% end %>
+    <% if current_user == @current_user_rating %>
+      <%= render partial: '/ratings/edit', locals: { rating: rating } %>
+    <%end%>
   <%end%>
 </div>
 
