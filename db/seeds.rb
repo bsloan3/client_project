@@ -203,7 +203,6 @@ Recipe.create(name: 'Ceasar Salad', difficulty_level: 2, prep_time: 10, directio
   Ingredient.create(item: 'Crutons', amount: 7, measurement: 'squares', recipe_id: 15)
   Ingredient.create(item: 'Chicken', amount: 1, measurement: 'lb', recipe_id: 15)
   Ingredient.create(item: 'Lettuce', amount: 1, measurement: 'lb', recipe_id: 15)
-  Ingredient.create(item: 'Guac', amount: 1, measurement: 'lb', recipe_id: 15)
     Rating.create(rating: 1, user_id: 2, recipe_id: 15)
     Rating.create(rating: 2, user_id: 1, recipe_id: 15)
     Rating.create(rating: 1, user_id: 8, recipe_id: 15)
