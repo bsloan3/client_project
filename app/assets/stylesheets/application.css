@@ -24,6 +24,31 @@ body{
   background: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
 }
+.ingredient-form {
+    display: none;
+}
+
+.ingredient-form:first-child {
+    display: block;
+}
+
+.hide-ingredient {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border: 1px solid grey;
+  border-radius: 50%;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color, color .2s linear;
+}
+
+.hide-ingredient:hover {
+  background-color: darkgrey;
+  color: white;
+}
 
 .navbar{
   margin: 0px !important;

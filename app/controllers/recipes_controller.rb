@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
     @user = current_user
     redirect_to root_path unless login?
     @recipe = Recipe.new
-    2.times { @recipe.ingredients.new }
+    20.times { @recipe.ingredients.new }
   end
 
   def create
