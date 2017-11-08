@@ -24,6 +24,7 @@ $(document).ready(function(){
       rewindSpeed: 500
   });
 
+
   $(".hide-ingredient").click(function(){
     $(this).parent().hide();
   });

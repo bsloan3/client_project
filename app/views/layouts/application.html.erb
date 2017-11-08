@@ -26,12 +26,13 @@
             <li><a href="/recipes">Home</a></li>
             <li><a href="/users/<%=@current_user.id%>">Profile</a></li>
             <li><a href="/recipes/new"> Create New Recipe </a></li>
-            <li>
-              <%= form_tag(recipes_path, :method => "get", class: 'search') do %>
+            <li id="search-form">
+                <%= form_tag(recipes_path, :method => "get", class: 'inner-addon right-addon search-icon') do %>
                 <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search Recipes" %>
+                <i class="glyphicon glyphicon-search "></i>
               <% end %>
             </li>
-            <li id="log"><a href="/logout">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
 
           <% else %>
@@ -41,9 +42,10 @@
               </div>
               <li><a href="/login">Login</a></li>
               <li><a href="/users/new">New User</a></li>
-              <li>
-                <%= form_tag(recipes_path, :method => "get", class: 'search') do %>
+              <li id="search-form">
+                  <%= form_tag(recipes_path, :method => "get", class: 'inner-addon right-addon search-icon') do %>
                   <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search Recipes" %>
+                  <i class="glyphicon glyphicon-search "></i>
                 <% end %>
               </li>
             </ul>
