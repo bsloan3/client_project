@@ -28,17 +28,17 @@ $(document).ready(function(){
   $(".hide-ingredient").click(function(){
     $(this).parent().parent().parent().find('input').val('');
     $(this).parent().parent().parent().removeClass('ingr-active');
-    if($('.ingr-active').length <= 0){
-      $('.outside').show();
-    }
+    // if($('.ingr-active').length <= 0){
+    //   $('.outside').show();
+    // }
   });
 
   $(".show-ingredient").on("click", function(e) {
     e.preventDefault();
     var ingrets = $('.ingredient-form');
-    if($(e.target).hasClass('outside')){
-      $(e.target).hide();
-    }
+    // if($(e.target).hasClass('outside')){
+      // $(e.target).hide();
+    // }
 
     for(var int=0; int < 20; int++){
       if(!$(ingrets[int]).hasClass('ingr-active')){
