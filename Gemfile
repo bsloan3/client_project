@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'capybara', "~> 2.5"
+  gem 'simplecov', :require => false, :group => :test
 
 end
 
