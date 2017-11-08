@@ -15,6 +15,11 @@
  */
  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+.container{
+  border-bottom: dashed 1px gray !important;
+  padding: 1%;
+}
+
 body{
   background: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
