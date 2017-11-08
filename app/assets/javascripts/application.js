@@ -14,9 +14,8 @@
 
 //= require rails-ujs
 //= require_tree .
-jQuery(document).ready(function() {
-
-  jQuery("#owl-example").owlCarousel({
+$(document).ready(function(){
+  $("#owl-example").owlCarousel({
     navigation : true,
       slideSpeed : 300,
       paginationSpeed : 400,
@@ -25,19 +24,13 @@ jQuery(document).ready(function() {
       rewindSpeed: 500
   });
 
-});
-
-
-$(document).ready(function(){
   $(".hide-ingredient").click(function(){
     $(this).parent().hide();
-  })
+  });
 
   $(".show-ingredient").on("click", function(e) {
     e.preventDefault();
-    // debugger
-    var ingrets = $('.ingredient-form')
-    // debugger
+    var ingrets = $('.ingredient-form');
 
     for(var int=0; int < 20; int++){
       if($(ingrets[int]).css('display') === 'none'){
@@ -45,8 +38,5 @@ $(document).ready(function(){
         break;
       }
     }
-    // var form = $(".new-ingredient-form").clone();
-    // e.preventDefault();
-    // $(".ingredients-form").append(form);
-   })
-})
+  });
+});
