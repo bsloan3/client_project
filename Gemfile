@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'faker'
+  gem 'capybara', "~> 2.5"
 
 end
 
