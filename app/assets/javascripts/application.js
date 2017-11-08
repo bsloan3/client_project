@@ -36,12 +36,12 @@ $(document).ready(function(){
   $(".show-ingredient").on("click", function(e) {
     e.preventDefault();
     // debugger
-    var shits = $('.ingredient-form')
+    var ingrets = $('.ingredient-form')
     // debugger
 
-    for(var shit=0; shit < 20; shit++){
-      if($(shits[shit]).css('display') === 'none'){
-        $(shits[shit]).css('display', 'block');
+    for(var int=0; int < 20; int++){
+      if($(ingrets[int]).css('display') === 'none'){
+        $(ingrets[int]).css('display', 'block');
         break;
       }
     }
