@@ -1,19 +1,18 @@
 
- <% @recipe.ingredients.each do |ingredient| %>
-<p>- <%= ingredient.amount%> <%= ingredient.measurement %><%if ingredient.amount != 1%>'s
-<%end%> of <%= ingredient.item %> </p>
+
+<p>- <%= @ingredient.amount%> <%= @ingredient.measurement %><%if @ingredient.amount != 1%>'s
+<%end%> of <%= @ingredient.item %> </p>
 <%= form_for :ingredient, :url => { :action => "update" } do |form| %>
    <li>
      <%= form.label :item %>
-     <%= form.text_field :item, value: ingredient.item  %>
+     <%= form.text_field :item, value: @ingredient.item  %>
      <%= form.label :amount %>
-     <%= form.text_field :amount, value: ingredient.amount  %>
+     <%= form.text_field :amount, value: @ingredient.amount  %>
      <%= form.label :measurement %>
-     <%= form.text_field :measurement, value: ingredient.measurement %>
+     <%= form.text_field :measurement, value: @ingredient.measurement %>
      <%= form.submit "Update"%>
    <%end%>
-   <%= form_for("/ingredients/#{ingredient.id}", :method => :delete) do |f|%>
+   <%= form_for("/@ingredients/#{@ingredient.id}", :method => :delete) do |f|%>
    <%= f.submit "x" %>
    <%end%>
  </li>
-<%end%>
