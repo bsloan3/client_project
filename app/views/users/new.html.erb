@@ -1,14 +1,16 @@
-<h1>New User</h1>
+<div id="background-image" class="background-image"/>
+  <div class="container">
 
-<%= form_for @user do |f| %>
- <%= f.label :username %>
- <%= f.text_field :username %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Create" %>
-<% end %>
-<% if @errors %>
-  <p style="color:red;"><%= @errors %></p>
-<% end %>
+
+  <%= form_for(@user, html: {class: "form-signin"}) do |f| %>
+  <h1 class="form-signin-heading">New User</h1>
+   <%= f.text_field :username, class: "form-control1", placeholder: "Username"  %>
+    <%= f.text_field :email, class: "form-control1", placeholder: "Email" %>
+    <%= f.password_field :password, class: "form-control1", placeholder: "Password"  %>
+    <%= f.submit "Create", class:"btn btn-lg btn-primary btn-block" %>
+    <% if @errors %>
+    <h3 style="color:red;"><%= @errors %></h3></p>
+    <% end %>
+  <% end %>
+  </div>
+</div>

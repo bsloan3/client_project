@@ -1,12 +1,14 @@
-<h1>Login</h1>
+<div id="background-image" class="background-image"/>
+  <div class="container">
+  <%= form_tag('/login', class: "form-signin", method: 'post') do %>
 
-<%= form_tag('/login', method: 'post') do %>
-  <label for="user[email]">Email: </label>
-  <input type="text" name="user[email]">
-  <label for="user[password]">Password: </label>
-  <input type="password" name="user[password]">
-  <input type="submit" name="submit">
-<% end %>
-<% if @errors %>
-  <p style="color:red;"><%= @errors %></p>
-<% end %>
+  <h1 class="form-signin-heading">Login</h1>
+    <input type="text" class="form-control1" placeholder="Email address" name="user[email]">
+    <input type="password" class="form-control1" placeholder="Password" name="user[password]">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit"> Sign In </button>
+  <% end %>
+  <% if @errors %>
+    <p style="color:red;"><%= @errors %></p>
+  <% end %>
+  </div> 
+</div>

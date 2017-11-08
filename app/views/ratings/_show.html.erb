@@ -1,44 +1,13 @@
 
   <h3>Ratings</h3>
-    <% recipe.ratings.each do |rating| %>
-        <% if rating.rating == 1 %>
-        <p><%= image_tag("1-star.png", size:"16") %>
-          <%= rating.user.username %>
-        <%end %>
-    <%end%> </p>
-
-    <% recipe.ratings.each do |rating| %>
-      <% if rating.rating == 2 %>
-      <p><% 2.times do %>
-        <%= image_tag("1-star.png", size:"16") %>
-        <%end%>
-          <%= rating.user.username %>
-      <%end %>
-    <%end%> </p>
-
-    <%recipe.ratings.each do |rating| %>
-      <%if rating.rating == 3 %>
-      <p><% 3.times do %>
-        <%= image_tag("1-star.png", size:"16") %>
-        <%end%>
-        <%= rating.user.username %>
-      <%end %>
-    <%end%></p>
-
-  <% recipe.ratings.each do |rating| %>
-    <%if rating.rating == 4 %>
-    <p><% 4.times do %>
-      <%= image_tag("1-star.png", size:"16") %>
-      <%end%>
-      <%= rating.user.username %>
-    <%end%>
-  <%end%> </p>
-
-  <% recipe.ratings.each do |rating| %>
-      <%if rating.rating == 5 %>
-      <p><% 5.times do %>
-        <%= image_tag("1-star.png", size:"16") %>
-        <%end%>
-        <%= rating.user.username %>
-      <%end%>
-    <%end%></p>
+    <p>Average Rating: <%= recipe.ratings.average(:rating).round(2) %>/5</p>
+        <p><%= recipe.ratings.where(rating: 1).count %> people gave this
+          <%= image_tag("1-star.png", size:"16") %></p>
+        <p><%= recipe.ratings.where(rating: 2).count %> people gave this
+        <% 2.times do %><%= image_tag("1-star.png", size:"16") %><%end%></p>
+        <p><%= recipe.ratings.where(rating: 3).count %> people gave this
+        <% 3.times do %><%= image_tag("1-star.png", size:"16") %><%end%></p>
+        <p><%= recipe.ratings.where(rating: 4).count %> people gave this
+        <% 4.times do %><%= image_tag("1-star.png", size:"16") %><%end%></p>
+        <p><%= recipe.ratings.where(rating: 5).count %> people gave this
+        <% 5.times do %><%= image_tag("1-star.png", size:"16") %><%end%></p>
