@@ -24,8 +24,6 @@ $(document).ready(function(){
       rewindSpeed: 500
   });
 
-  // $('.ingredient-form:first-child').addClass('ingr-active')
-
   $(".hide-ingredient").click(function(){
     $(this).parent().parent().parent().find('input').val('');
     $(this).parent().parent().parent().removeClass('ingr-active');
