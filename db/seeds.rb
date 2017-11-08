@@ -173,8 +173,8 @@ cake = Recipe.create(name:"Najah's Sucide Cheese Cake", difficulty_level: 5, pre
     Rating.create(rating: 5, user_id: 8, recipe_id: 11)
     Rating.create(rating: 5, user_id: 9, recipe_id: 11)
 
-insomnia = Recipe.create(name:"Najah's Sucide Cheese Cake", difficulty_level: 5, prep_time: 45, directions:"Dont act like you have any energy to bake: 877-632-6654", user: thomas, category: 'Dessert')
-  Ingredient.create(item: 'cookies', amount: 12, measurement: '877-632-6654', recipe_id: 11)
+insomnia = Recipe.create(name:"Insomnia Cookies Secret Recipe", difficulty_level: 5, prep_time: 45, directions:"877-632-6654", user: thomas, category: 'Dessert')
+  Ingredient.create(item: 'cookies', amount: 12, measurement: '877-632-6654', recipe_id: 12)
     Rating.create(rating: 2, user_id: 1, recipe_id: 12)
     Rating.create(rating: 5, user_id: 2, recipe_id: 12)
     Rating.create(rating: 5, user_id: 3, recipe_id: 12)
