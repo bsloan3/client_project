@@ -243,7 +243,9 @@ footer{
 
 /*new form*/
 .new-form{
-  padding-left:3%;
+  padding-left:20%;
+  padding-right:20%;
+  width: 100%;
 }
 
 .search-box {
@@ -324,7 +326,7 @@ body {
   }
   .background-image {
     background-image: url('./header-background.jpg');
-
+    background-size: cover;
   }
   .form-signin {
     max-width: 280px;

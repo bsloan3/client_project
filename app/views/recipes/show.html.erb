@@ -1,3 +1,9 @@
+<div class="row header" id="show-head">
+  <div class="col-md-8 col-sm-8 col-lg-8"></div>
+  <div  class="col-md-4 col-sm-4 col-lg-4">
+    <h1>Recipe</h1>
+  </div>
+</div>
 <% if current_user && own_recipe?(@recipe) %>
   <div class="editbutton">
     <a href="/recipes/<%=@recipe.id%>/edit" class="btn btn-primary btn-md my_butt"> Edit Recipe </a>
