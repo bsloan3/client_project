@@ -295,3 +295,7 @@ footer{
 #logout {
   float: right;
 }
+
+.rating{
+  display: inline-block;
+}
