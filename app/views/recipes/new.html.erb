@@ -1,53 +1,83 @@
-<h3 id="show-head">Create New Recipe!</h3>
 
-<div class="new-form">
-  <%= form_for @recipe do |form| %>
-    <%if @recipe.errors.any? %>
-      <div id="error_explantion">
-        <ul>
-          <% @recipe.errors.full_messages.each do |msg| %>
-                  <div style="color: red;"><%= msg %></div>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
-    </div>
-    <div>
-      <%= form.label :category %><br>
-      <%= form.select :category, ["Dessert", "Appetizer", "Salad", "Main Course"], :prompt => 'Select One' %>
-    </div>
-    <div>
-      <%= form.label :difficulty_level %><br>
-      <%= form.select :difficulty_level, [1, 2, 3, 4, 5], :prompt => 'Select Level' %>
-    </div>
-    <div>
-      <%= form.label :prep_time, "Preperation Time (Minutes)" %><br>
-      <%= form.text_field :prep_time %>
-    </div>
-    <div>
-      <%= form.label :directions %><br>
-      <%= form.text_area :directions %>
-    </div>
+<div class="row">
+  <div class="col-md-3 col-sm-1">
 
-    Ingredients:
-    <ul class="add-ingredient-container">
-      <%= form.fields_for :ingredients do |ingredients_form| %>
-        <li class="ingredient-form">
-          <%= ingredients_form.label :item %>
-          <%= ingredients_form.text_field :item, placeholder: "Ingredient Name"  %>
-          <%= ingredients_form.label :amount %>
-          <%= ingredients_form.text_field :amount, placeholder: 0  %>
-          <%= ingredients_form.label :measurement %>
-          <%= ingredients_form.text_field :measurement, placeholder: "Unit" %>
-          <span class="hide-ingredient" title="remove ingredient">X</span>
-        </li>
+  </div>
+  <div class="col-md-6 col-sm-10">
+    <h3 id="show-head">Create New Recipe!</h3>
+    <div class="new-form">
+      <%= form_for @recipe do |form| %>
+        <%if @recipe.errors.any? %>
+          <div id="error_explantion">
+            <ul>
+              <% @recipe.errors.full_messages.each do |msg| %>
+                      <div style="color: red;"><%= msg %></div>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-    <button class="show-ingredient">Add Ingredient</button>
-    </ul>
+        <div class="form-group">
+          <%= form.label :name, for: "name" %><br>
+          <%= form.text_field :name, class: 'form-control', id: "name", placeholder: "ex: Jane Doe" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :category %><br>
+          <%= form.select :category, ["Dessert", "Appetizer", "Salad", "Main Course"], {:include_blank => 'Select One'}, { :class => 'form-control'}  %>
+        </div>
+        <div class="form-group">
+          <%= form.label :difficulty_level %><br>
+          <%= form.select :difficulty_level, [1, 2, 3, 4, 5], {:include_blank => 'Select Level'}, { :class => 'form-control'} %>
+        </div>
+        <div class="form-group">
+          <%= form.label :prep_time, "Preperation Time (Minutes)" %><br>
+          <%= form.text_field :prep_time, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :directions %><br>
+          <%= form.text_area :directions, class: 'form-control' %>
+        </div>
 
-    <%= form.submit 'Create Recipe' %>
-  <% end %>
+        Ingredients:
+        <ul class="add-ingredient-container">
+          <div class="lables row">
+            <div class="col-sm-4">
+              <label>Ingredient name:</label>
+            </div>
+            <div class="col-sm-2">
+              <label>Amount</label>
+            </div>
+            <div class="col-sm-2">
+            <label>Measureent</label>
+            </div>
+          </div>
+          <%= form.fields_for :ingredients do |ingredients_form| %>
+            <li class="ingredient-form">
+              <div class="form-group row ingr">
+                <div class="item col-sm-4">
+                  <%= ingredients_form.text_field :item, placeholder: "ex: milk", class: 'form-control'  %>
+
+                </div>
+                <div class="col-sm-2">
+                  <%= ingredients_form.text_field :amount, placeholder: 'ex: 0', class: 'form-control'  %>
+
+                </div>
+                <div class="col-sm-2">
+                  <%= ingredients_form.text_field :measurement, placeholder: "ml", class: 'form-control' %>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" class="btn btn-danger hide-ingredient ingr">Remove</button>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" class="btn btn-success show-ingredient ingr">Add Ingredient</button>
+                </div>
+              </div>
+            </li>
+            <% end %>
+          <button type="button" class="btn btn-success show-ingredient ingr outside">Add Ingredient</button>
+        </ul>
+
+        <%= form.submit 'Create Recipe', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
