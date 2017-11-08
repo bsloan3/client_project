@@ -35,17 +35,17 @@
     Ingredients:
     <ul class="add-ingredient-container">
       <%= form.fields_for :ingredients do |ingredients_form| %>
-        <li>
+        <li class="ingredient-form">
           <%= ingredients_form.label :item %>
           <%= ingredients_form.text_field :item, placeholder: "Ingredient Name"  %>
           <%= ingredients_form.label :amount %>
           <%= ingredients_form.text_field :amount, placeholder: 0  %>
           <%= ingredients_form.label :measurement %>
           <%= ingredients_form.text_field :measurement, placeholder: "Unit" %>
-
+          <span class="hide-ingredient">X</span>
         </li>
         <% end %>
-    <button class="add-ingredient">Add Ingredient</button>
+    <button class="show-ingredient">Show Ingredient</button>
     </ul>
 
     <%= form.submit 'Create Recipe' %>

@@ -26,3 +26,27 @@ jQuery(document).ready(function() {
   });
 
 });
+
+
+$(document).ready(function(){
+  $(".hide-ingredient").click(function(){
+    $(this).parent().hide();
+  })
+
+  $(".show-ingredient").on("click", function(e) {
+    e.preventDefault();
+    // debugger
+    var shits = $('.ingredient-form')
+    // debugger
+
+    for(var shit=0; shit < 20; shit++){
+      if($(shits[shit]).css('display') === 'none'){
+        $(shits[shit]).css('display', 'block');
+        break;
+      }
+    }
+    // var form = $(".new-ingredient-form").clone();
+    // e.preventDefault();
+    // $(".ingredients-form").append(form);
+   })
+})
