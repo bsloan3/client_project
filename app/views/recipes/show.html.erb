@@ -1,8 +1,11 @@
-<div class="editbutton">
-  <% if current_user && own_recipe?(@recipe) %>
-    <a href="/recipes/<%=@recipe.id%>/edit" class="waves-effect waves-light btn-large deep-purple lighten-2"> Edit Recipe </a>
-  <%end%>
-</div>
+<% if current_user && own_recipe?(@recipe) %>
+  <div class="editbutton">
+    <a href="/recipes/<%=@recipe.id%>/edit" class="btn btn-primary btn-md my_butt"> Edit Recipe </a>
+    <%= form_for("/recipes/#{@recipe.id}", :html => {:class => "my_butt"}, :method => :delete) do |f|%>
+      <%= f.submit class: "btn btn-primary btn-md", :value => "Delete" %> </a>
+    <%end%>
+  </div>
+<%end%>
 
 <div id="recipeshow" class="container">
   <h3><a href="/recipes/<%=@recipe.id%>"><%= @recipe.name %></a></h3>
@@ -40,13 +43,6 @@
   </div>
 </div>
 
-<div class="deletebutton">
-  <% if current_user && own_recipe?(@recipe) %>
-    <%= form_for("/recipes/#{@recipe.id}", :method => :delete) do |f|%>
-      <a class="waves-effect waves-light btn-large deep-purple lighten-2">
-      <%= f.submit :value => "Delete" %> </a>
-    <%end%>
-  <%end%>
 </div>
 
 

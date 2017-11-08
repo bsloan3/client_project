@@ -211,8 +211,6 @@ footer{
 }
 
 /*.btn-primary{
-  width: 40%;
-  height: 50%;
   border-radius: 15px !important;
 }*/
 
@@ -239,13 +237,14 @@ footer{
   border-top: solid;
 }
 .editbutton{
-  padding-right: 10%;
   padding-top: 3%;
+  padding-right: 10%;
+  min-width: 200px;
   float:right;
 }
-.deletebutton{
-  padding-left: 5%;
-  padding-top: 3%;
+
+.my_butt {
+  display: inline-block;
 }
 
 /*new form*/
