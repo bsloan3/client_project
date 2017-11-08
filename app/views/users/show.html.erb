@@ -4,16 +4,15 @@
 <% @recipes.each do |recipe| %>
   <% if recipe.user_id == @current_user.id %>
     <div class="container">
+      <h3><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h3>
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#<%= recipe.id %>home">Recipe</a></li>
+        <li class="active"><a data-toggle="tab" href="#<%= recipe.id %>home">Ingredients</a></li>
         <li><a data-toggle="tab" href="#<%= recipe.id %>menu1">Directions</a></li>
         <li><a data-toggle="tab" href="#<%= recipe.id %>menu2">Details/Ratings</a></li>
       </ul>
 
       <div class="tab-content">
         <div id="<%= recipe.id %>home" class="tab-pane fade in active">
-          <h3><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h3>
-          <p>Ingredients:</p>
           <ul>
             <% recipe.ingredients.each do |ingredient| %>
               <li><%= ingredient.amount %> <%= ingredient.measurement %> of <%= ingredient.item %></li>
