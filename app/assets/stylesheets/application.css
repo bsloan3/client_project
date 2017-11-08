@@ -28,26 +28,12 @@ body{
     display: none;
 }
 
-.ingredient-form:first-child {
-    display: block;
+.add-ingredient-container {
+    padding-left: 0px;
 }
 
-.hide-ingredient {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  border: 1px solid grey;
-  border-radius: 50%;
-  user-select: none;
-  cursor: pointer;
-  transition: background-color, color .2s linear;
-}
-
-.hide-ingredient:hover {
-  background-color: darkgrey;
-  color: white;
+.ingr-active {
+  display: block;
 }
 
 .navbar{
