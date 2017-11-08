@@ -9,11 +9,12 @@ RSpec.describe RecipesController, type: :controller do
       expect(response).to have_http_status 200
     end
 
-    it "assigns the recent recipe as "
-
-    it "renders the :index template"
+    it "assigns the recent recipe as @recipes" do
+      get :index
+      expect(assigns(:recipes)).to eq(Recipe.recent)
+    end
   end
-
+end
   # describe "GET #show" do
   #   it "responds with status code 200" do
   #     get :show, { id: recipe.id }
@@ -89,5 +90,3 @@ RSpec.describe RecipesController, type: :controller do
   #     expect(response).to redirect_to recipes_url
   #   end
   # end
-
-end
