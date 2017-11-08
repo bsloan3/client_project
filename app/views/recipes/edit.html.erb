@@ -1,4 +1,9 @@
-<h3 id="show-head">Edit Recipe</h3>
+<div class="row header" id="show-head">
+  <div class="col-md-8 col-sm-8 col-lg-8"></div>
+  <div  class="col-md-4 col-sm-4 col-lg-4">
+    <h1>Edit Recipe</h1>
+  </div>
+</div>
 
 <div class="new-form">
   <%=form_tag("/recipes/#{@recipe.id}", method: "put") do%>

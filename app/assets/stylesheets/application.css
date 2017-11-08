@@ -38,8 +38,10 @@ body{
 
 .navbar{
   margin: 0px !important;
+  width: 100% !important;
 }
 .navbar-nav{
+  width: 100%;
   /*width: 85% !important;*/
 }
 .navbar-brand{
@@ -194,14 +196,22 @@ footer{
   padding-top: 5%;
 }
 
-.btn-primary{
-  border-radius: 8px !important;
-}
+/*.btn-primary{
+  border-radius: 15px !important;
+}*/
 
 /*user show*/
 #show-head{
-  padding-left: 5%;
-  padding-bottom: 1%;
+  padding: 5%;
+  color: white;
+  margin-bottom: 2%;
+  margin-top: 0px !important;
+  height: 100%;
+  background-image: url("http://www.powerpointhintergrund.com/uploads/food-background-2.jpg");
+  background-size: cover;
+/*  -webkit-text-stroke: 1.0px #000000;
+  -webkit-text-fill-color: #FFFFFF;*/
+  font-weight: bolder;
 }
 
 /*recipe index*/
@@ -221,16 +231,58 @@ footer{
   border-top: solid;
 }
 .editbutton{
-  padding-right: 10%;
   padding-top: 3%;
+  padding-right: 10%;
+  min-width: 200px;
   float:right;
 }
-.deletebutton{
-  padding-left: 5%;
-  padding-top: 3%;
+
+.my_butt {
+  display: inline-block;
 }
 
 /*new form*/
 .new-form{
   padding-left:3%;
+}
+
+.search-box {
+  width: 250px;
+  cursor: pointer;
+  margin: 0 auto;
+  border: .5px solid rgb(232, 238, 241);
+  border-radius: 28px;
+  color: rgb(119, 126, 128);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: 1px;
+  background: #fff;
+}
+
+.search-icon {
+  width: 250px;
+  padding: 5px;
+  top: 5px;
+  border-radius: 24px;
+  float: right;
+}
+.inner-addon {
+  position: relative;
+}
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 13px;
+  pointer-events: none;
+}
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 20px;}
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+#search-form {
+
+  float: right !important;
 }

@@ -34,14 +34,14 @@
         <h4 class="card-title">Top Main Courses</h4>
         <% @main_course_sort[0...3].each do |recipe| %>
           <p class="card-text">
-            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+            <strong><a href="/recipes/<%=recipe.id %>"><p><%= recipe.name %></a></strong></p>  Rating: <%= recipe.ratings.average(:rating).round(2) %>
           </p>
         <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Main Course">
-          <button type="submit" class="btn-primary">Browse The Recipes!</button>
+          <button type="submit" class="btn btn-primary">Browse Main Courses</button>
         <%end%>
       </div>
     </div>
@@ -53,14 +53,14 @@
         <h4 class="card-title">Top Salads</h4>
         <% @salad_sort[0...3].each do |recipe| %>
           <p class="card-text">
-            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+            <strong><a href="/recipes/<%=recipe.id %>"><p><%= recipe.name %></a></strong></p>  Rating: <%= recipe.ratings.average(:rating).round(2) %>
           </p>
         <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Salad">
-          <button type="submit" class="btn-primary">Browse The Recipes!</button>
+          <button type="submit" class="btn btn-primary">Browse Salads</button>
         <%end%>
       </div>
     </div>
@@ -72,14 +72,14 @@
         <h4 class="card-title">Top Appetizers</h4>
         <% @apps_sort[0...3].each do |recipe| %>
           <p class="card-text">
-            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+            <strong><a href="/recipes/<%=recipe.id %>"><p><%= recipe.name %></a></strong></p> Rating: <%= recipe.ratings.average(:rating).round(2) %>
           </p>
         <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Appetizer">
-          <button type="submit" class="btn-primary">Browse The Recipes!</button>
+          <button type="submit" class="btn btn-primary">Browse Appetizers</button>
         <%end%>
       </div>
     </div>
@@ -91,14 +91,14 @@
         <h4 class="card-title">Top Desserts</h4>
         <% @dessert_sort[0...3].each do |recipe| %>
           <p class="card-text">
-            <strong><a href="/recipes/<%=recipe.id %>"><%= recipe.name %></a></strong> | Rating: <%= recipe.ratings.average(:rating) %>
+            <strong><a href="/recipes/<%=recipe.id %>"><p><%= recipe.name %></a></strong></p> Rating: <%= recipe.ratings.average(:rating).round(2) %>
           </p>
           <% end %>
       </div>
       <div class="card-footer">
         <%=form_tag(recipes_path, method: "get") do%>
           <input type="hidden" name="search" value="Dessert">
-          <button type="submit" class="btn-primary">Browse The Recipes!</button>
+          <button type="submit" class="btn btn-primary">Browse Dessert</button>
         <%end%>
       </div>
     </div>
@@ -108,4 +108,3 @@
 <footer class="container">
   <p>© 2017 Bradley Sloan, Najah Izquierdo, Thomas Rafferty </p>
 </footer>
-

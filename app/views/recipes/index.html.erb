@@ -2,7 +2,14 @@
 <% if @recipes.blank? %>
   <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
 <% end %>
-<h1 id="show-head">Menu Page</h1>
+
+<div class="row header" id="show-head">
+  <div class="col-md-8 col-sm-8 col-lg-8"></div>
+  <div  class="col-md-4 col-sm-4 col-lg-4">
+    <h1>Menu</h1>
+  </div>
+</div>
+
 <div class="createnew">
   <%= link_to "Create Recipe", new_recipe_path %>
 </div>
