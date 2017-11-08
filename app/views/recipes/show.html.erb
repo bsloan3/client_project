@@ -69,7 +69,7 @@
   <%end%>
 
   <% @recipe.ratings.each do |rating| %>
-    <%= rating.rating %> | <%= rating.user.username %>
+    <p> <%= rating.rating %> | <%= rating.user.username %> </p>
     <% if current_user == rating.user %>
       <%= render partial: '/ratings/edit', locals: { rating: rating } %>
     <%end%>
